@@ -18,4 +18,6 @@ cron.schedule("0 */2 * * *", () => {
   fetchCryptoData();
 });
 
+fetchCryptoData();
+
 app.listen(3000, () => console.log("Server running on port 3000"));
