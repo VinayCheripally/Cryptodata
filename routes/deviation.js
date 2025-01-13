@@ -2,6 +2,35 @@ const express = require("express");
 const Crypto = require("../models/crypto");
 const router = express.Router();
 
+/**
+ * @swagger
+ * /deviation:
+ *   get:
+ *     summary: Get the standard deviation of the cryptocurrency prices
+ *     parameters:
+ *       - in: query
+ *         name: coin
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The cryptocurrency coin (e.g., bitcoin, ethereum)
+ *     responses:
+ *       200:
+ *         description: A JSON object containing the standard deviation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 deviation:
+ *                   type: number
+ *                   description: The standard deviation of the coin prices
+ *       404:
+ *         description: Data not found
+ *       500:
+ *         description: Server error
+ */
+
 router.get("/deviation", async (req, res) => {
   const { coin } = req.query;
   try {
